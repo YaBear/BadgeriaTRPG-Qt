@@ -16,10 +16,6 @@ object_script.*.Debug
 *_plugin_import.cpp
 /.qmake.cache
 /.qmake.stash
-*.pro.user
-*.pro.user.*
-*.qbs.user
-*.qbs.user.*
 *.moc
 moc_*.cpp
 moc_*.h
@@ -38,10 +34,6 @@ target_wrapper.*
 # QtCreator
 *.autosave
 
-# QtCreator Qml
-*.qmlproject.user
-*.qmlproject.user.*
-
 # QtCreator CMake
 CMakeLists.txt.user*
 
@@ -49,6 +41,4 @@ CMakeLists.txt.user*
 compile_commands.json
 
 # QtCreator local machine specific files for imported projects
-*creator.user*
-
 *_qmlcache.qrc
