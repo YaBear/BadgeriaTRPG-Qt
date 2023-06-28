@@ -10,5 +10,9 @@
         <file>images/MiniPanel06.jpg</file>
         <file>images/MiniPanel06bt.jpg</file>
         <file>images/backgroundforest.jpg</file>
+        <file>images/Archimonde.png</file>
+        <file>images/Grunt.png</file>
+        <file>images/Knight.png</file>
+        <file>images/Shaman.png</file>
     </qresource>
 </RCC>
