@@ -38,11 +38,18 @@ private slots:
 
     void on_addInvSlot_clicked();
 
-    void on_delInvSlot_clicked();
+    void on_enemyHPSpinBox_valueChanged(int arg1);
+
+    void on_playerHPSpinBox_valueChanged(int arg1);
 
 private:
     int i_row = 0, i_column = 0;
     int quest_count = 0;
+    int p_maxhp = 150;
+    int e_maxhp = 200;
+    int p_currhp = p_maxhp;
+    int e_currhp = e_maxhp;
     Ui::MainWindow *ui;
+    void initHP();
 };
 #endif // MAINWINDOW_H

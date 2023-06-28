@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    initHP();
 }
 
 MainWindow::~MainWindow()
@@ -13,11 +14,22 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
+void MainWindow::initHP() {
+    QString temp = "%1 / %2";
+    QString temp1 = temp.arg(e_maxhp);
+    QString temp2 = temp1.arg(e_maxhp);
+    ui->enemyHPLabel->setText(temp2);
+    QString temp3 = "%1 / %2";
+    QString temp4 = temp3.arg(p_maxhp);
+    QString temp5 = temp4.arg(p_maxhp);
+    ui->playerHPLabel->setText(temp5);
+}
 void MainWindow::on_middleEntry_returnPressed()
 {
     if (ui->middleEntry->text() != "")
         ui->middleTextBrowser->append(ui->middleEntry->text());
+    if (ui->middleEntry->text() == "clear")
+        ui->middleTextBrowser->clear();
     ui->middleEntry->clear();
 }
 
@@ -87,29 +99,39 @@ void MainWindow::on_questAdd_clicked()
 
 void MainWindow::on_addInvSlot_clicked()
 {
-    QPushButton *temp = new(QPushButton);
-    temp->setText("+");
-    temp->setStyleSheet("QPushButton {background-image: disable; width: 16px; height: 16px}");
-    if (i_column == 3) {
-        i_row++;
-        i_column = 0;
+    for (int i = 0; i < 15; i++) {
+        QPushButton *temp = new(QPushButton);
+        temp->setText("+");
+        temp->setStyleSheet("QPushButton {width: 16px; height: 16px}");
+        ui->inventoryGrid->addWidget(temp, i_row, i_column);
+        i_column++;
+        if (i_column == 3) {
+            i_row++;
+            i_column = 0;
+        }
     }
-    ui->inventoryGrid->addWidget(temp, i_row, i_column);
-    i_column++;
-    if (i_row == 5 && i_column == 3)
-        ui->addInvSlot->setDisabled(true);
+}
+
+void MainWindow::on_enemyHPSpinBox_valueChanged(int arg1)
+{
+    e_currhp = arg1;
+    double coef = (double)e_maxhp / 100;
+    ui->enemyHP->setValue(arg1 / coef);
+    QString temp = "%1 / %2";
+    QString temp1 = temp.arg(e_currhp);
+    QString temp2 = temp1.arg(e_maxhp);
+    ui->enemyHPLabel->setText(temp2);
 }
 
 
-void MainWindow::on_delInvSlot_clicked()
+void MainWindow::on_playerHPSpinBox_valueChanged(int arg1)
 {
-    if (i_row > -1 && i_column > -1) {
-        ui->inventoryGrid->removeItem(ui->inventoryGrid->itemAtPosition(i_row, i_column - 1));
-        i_column--;
-        if (i_column == 0 && i_row != 0) {
-            i_column = 2;
-            i_row--;
-        }
-    }
+    p_currhp = arg1;
+    double coef = (double)p_maxhp / 100;
+    ui->playerHP->setValue(arg1 / coef);
+    QString temp = "%1 / %2";
+    QString temp1 = temp.arg(p_currhp);
+    QString temp2 = temp1.arg(p_maxhp);
+    ui->playerHPLabel->setText(temp2);
 }
 
