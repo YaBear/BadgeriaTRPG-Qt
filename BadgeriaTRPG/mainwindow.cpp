@@ -33,48 +33,43 @@ void MainWindow::on_middleEntry_returnPressed()
     ui->middleEntry->clear();
 }
 
-
 void MainWindow::on_hero1_clicked()
 {
-    ui->playerFrame->setStyleSheet("QFrame {background-image: url(:/images/Roshan.png); background-position: center; background-repeat: disable}");
-    ui->labelTopLeft->setText("Рошан");
+    changeHeroFrame(ui->playerFrame, ui->labelTopLeft, "Roshan", "Рошан");
 }
-
 
 void MainWindow::on_hero2_clicked()
 {
-    ui->playerFrame->setStyleSheet("QFrame {background-image: url(:/images/Shaman.png); background-position: center; background-repeat: disable}");
-    ui->labelTopLeft->setText("Регар");
+    changeHeroFrame(ui->playerFrame, ui->labelTopLeft, "Shaman", "Регар");
 }
-
 
 void MainWindow::on_hero3_clicked()
 {
-    ui->playerFrame->setStyleSheet("QFrame {background-image: url(:/images/Knight.png); background-position: center; background-repeat: disable}");
-    ui->labelTopLeft->setText("Гарритос");
+    changeHeroFrame(ui->playerFrame, ui->labelTopLeft, "Knight", "Гарритос");
 }
-
 
 void MainWindow::on_hero11_clicked()
 {
-    ui->enemyFrame->setStyleSheet("QFrame {background-image: url(:/images/doomguard.png); background-position: center; background-repeat: disable}");
-    ui->labelTopRight->setText("Дум");
+    changeHeroFrame(ui->enemyFrame, ui->labelTopRight, "doomguard", "Дум");
 }
-
 
 void MainWindow::on_hero22_clicked()
 {
-    ui->enemyFrame->setStyleSheet("QFrame {background-image: url(:/images/Archimonde.png); background-position: center; background-repeat: disable}");
-    ui->labelTopRight->setText("Архимонд");
+    changeHeroFrame(ui->enemyFrame, ui->labelTopRight, "Archimonde", "Архимонд");
 }
-
 
 void MainWindow::on_hero33_clicked()
 {
-    ui->enemyFrame->setStyleSheet("QFrame {background-image: url(:/images/Grunt.png); background-position: center; background-repeat: disable}");
-    ui->labelTopRight->setText("Манкрик");
+    changeHeroFrame(ui->enemyFrame, ui->labelTopRight, "Grunt", "Манкрик");
 }
 
+// Метод для изменения Портрета и Имени (fileName = портрет)
+void MainWindow::changeHeroFrame(QFrame *heroFrame, QLabel *heroNameLabel, QString fileName, QString heroName) {
+    QString baseTemplate = "QFrame {background-image: url(:/images/%1.png); background-position: center; background-repeat: disable}";
+    baseTemplate = baseTemplate.arg(fileName);
+    heroFrame->setStyleSheet(baseTemplate);
+    heroNameLabel->setText(heroName);
+}
 
 void MainWindow::on_stackSwitcher_2_clicked()
 {
@@ -100,17 +95,21 @@ void MainWindow::on_questAdd_clicked()
 void MainWindow::on_addInvSlot_clicked()
 {
     for (int i = 0; i < 15; i++) {
-        QPushButton *temp = new(QPushButton);
-        temp->setText("+");
-        temp->setStyleSheet("QPushButton {width: 16px; height: 16px}");
+        invHex *temp = new(invHex);
+        temp->setFixedHeight(35);
+        temp->setFixedWidth(35);
+        temp->setFrameShape(QFrame::Panel);
+        temp->setFrameShadow(QFrame::Raised);
         ui->inventoryGrid->addWidget(temp, i_row, i_column);
         i_column++;
-        if (i_column == 3) {
+        if (i_column == 5) {
             i_row++;
             i_column = 0;
         }
     }
 }
+
+
 
 void MainWindow::on_enemyHPSpinBox_valueChanged(int arg1)
 {
@@ -135,3 +134,70 @@ void MainWindow::on_playerHPSpinBox_valueChanged(int arg1)
     ui->playerHPLabel->setText(temp2);
 }
 
+
+void MainWindow::on_findSlot_clicked()
+{
+    int x, y, index;
+    x = ui->columnSpinBox->value();
+    y = ui->rowSpinBox->value();
+    index = ui->indexSpinBox->value();
+    if (ui->coordRadio->isChecked()) {
+        if (y < ui->inventoryGrid->rowCount()) {
+            QWidget *temp1 = ui->inventoryGrid->itemAtPosition(y, x)->widget();
+            temp1->setStyleSheet("QFrame {background-image: url(:/images/Grunt.png); background-position: center; background-repeat: disable}");
+        }
+    } else {
+        if (index < ui->inventoryGrid->count()) {
+            QWidget *temp2 = ui->inventoryGrid->itemAt(index)->widget();
+            temp2->setStyleSheet("QFrame {background-image: url(:/images/Grunt.png); background-position: center; background-repeat: disable}");
+        }
+    }
+}
+
+// Наведение мышкой на ячейки ивентаря
+bool invHex::event(QEvent *event)
+{
+    if (event->type() == QEvent::Enter && !showToolTip)
+    {
+        // Hover enter event
+        if (!cursorInsideTooltip) {
+            toolTip = new QFrame();
+            QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+            QPointF pos = mouseEvent->globalPosition();
+            toolTip->setWindowFlags(Qt::ToolTip);
+            toolTip->setGeometry(pos.x(), pos.y(), 100, 100);
+            toolTip->setFrameShape(QFrame::Box);
+            toolTip->show();
+            showToolTip = true;
+            qDebug() << "Hover Enter";
+        }
+        // Handle enter event
+    }
+    else if (event->type() == QEvent::Leave)
+    {
+        // Hover leave event
+        if (!cursorInsideTooltip) {
+            delete(toolTip);
+            showToolTip = false;
+            qDebug() << "Hover Leave";
+        }
+        // Handle leave event
+    }
+    else if (event->type() == QEvent::MouseMove)
+    {
+        // Hover move event
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        QPointF pos1 = mouseEvent->globalPosition();
+        if (toolTip->geometry().contains(pos1.toPoint())) {
+            cursorInsideTooltip = true;
+        } else {
+            cursorInsideTooltip = false;
+            toolTip->setGeometry(pos1.x(), pos1.y(), 100, 100);
+            qDebug() << "Hover Move" << pos1;
+        }
+        // Handle move event
+    }
+
+    // Call the base class event handler
+    return QWidget::event(event);
+}

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtWidgets>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,6 +15,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void initHP();
 
 private slots:
     void on_middleEntry_returnPressed();
@@ -42,6 +44,8 @@ private slots:
 
     void on_playerHPSpinBox_valueChanged(int arg1);
 
+    void on_findSlot_clicked();
+
 private:
     int i_row = 0, i_column = 0;
     int quest_count = 0;
@@ -49,7 +53,12 @@ private:
     int e_maxhp = 200;
     int p_currhp = p_maxhp;
     int e_currhp = e_maxhp;
-    Ui::MainWindow *ui;
-    void initHP();
+
+    bool showToolTip = false;
+
+    void changeHeroFrame(QFrame *heroFrame, QLabel *heroNameLabel, QString fileName, QString heroName);
+
+protected:
+        Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
