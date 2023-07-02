@@ -54,6 +54,9 @@ private:
     int p_currhp = p_maxhp;
     int e_currhp = e_maxhp;
 
+    QString qualityStack[7] = {"Poor", "Normal", "Uncommon", "Rare", "Epic", "Legendary", "Pearlscent"};
+    int countStack = 0;
+
     bool showToolTip = false;
 
     void changeHeroFrame(QFrame *heroFrame, QLabel *heroNameLabel, QString fileName, QString heroName);

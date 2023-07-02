@@ -143,15 +143,26 @@ void MainWindow::on_findSlot_clicked()
     index = ui->indexSpinBox->value();
     if (ui->coordRadio->isChecked()) {
         if (y < ui->inventoryGrid->rowCount()) {
-            QWidget *temp1 = ui->inventoryGrid->itemAtPosition(y, x)->widget();
+            invHex *temp1 = (invHex*)ui->inventoryGrid->itemAtPosition(y, x)->widget();
             temp1->setStyleSheet("QFrame {background-image: url(:/images/Grunt.png); background-position: center; background-repeat: disable}");
+            temp1->i_info.name = "Silver Sword";
+            temp1->i_info.quality = qualityStack[countStack];
+            temp1->i_info.type = "Sword 2h";
+            temp1->i_info.info = "This is really...\nReally cool sword.";
         }
     } else {
         if (index < ui->inventoryGrid->count()) {
-            QWidget *temp2 = ui->inventoryGrid->itemAt(index)->widget();
+            invHex *temp2 = (invHex*)ui->inventoryGrid->itemAt(index)->widget();
             temp2->setStyleSheet("QFrame {background-image: url(:/images/Grunt.png); background-position: center; background-repeat: disable}");
+            temp2->i_info.name = "Broken Sword";
+            temp2->i_info.quality = qualityStack[countStack];
+            temp2->i_info.type = "Sword 1h";
+            temp2->i_info.info = "This is really...Really bad sword.";
         }
     }
+    countStack++;
+    if (countStack == 7)
+        countStack = 0;
 }
 
 // Наведение мышкой на ячейки ивентаря
@@ -165,8 +176,17 @@ bool invHex::event(QEvent *event)
             QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
             QPointF pos = mouseEvent->globalPosition();
             toolTip->setWindowFlags(Qt::ToolTip);
-            toolTip->setGeometry(pos.x(), pos.y(), 100, 100);
+            toolTip->setGeometry(pos.x(), pos.y(), 150, 150);
             toolTip->setFrameShape(QFrame::Box);
+            QLabel *toolTipText = new QLabel(toolTip);
+            QString textt = "<span style=\"color: %1;\">%2</span>";
+            textt = textt.arg(getQualityColor(this->i_info.quality));
+            textt = textt.arg(this->i_info.quality);
+            toolTipText->setTextFormat(Qt::RichText);
+            toolTipText->setWordWrap(true);
+            toolTipText->setText(this->i_info.name + "<br><br>" + textt + "<br><br>" + this->i_info.type + "<br><br>" + this->i_info.info);
+            toolTipText->setGeometry(0, 0, toolTip->geometry().width(), toolTip->geometry().height());
+            toolTipText->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
             toolTip->show();
             showToolTip = true;
             qDebug() << "Hover Enter";
@@ -192,10 +212,15 @@ bool invHex::event(QEvent *event)
             cursorInsideTooltip = true;
         } else {
             cursorInsideTooltip = false;
-            toolTip->setGeometry(pos1.x(), pos1.y(), 100, 100);
+            toolTip->setGeometry(pos1.x(), pos1.y(), 150, 150);
             qDebug() << "Hover Move" << pos1;
         }
         // Handle move event
+    }
+    // ??
+    if (!toolTip) {
+        showToolTip = false;
+        cursorInsideTooltip = false;
     }
 
     // Call the base class event handler
