@@ -189,7 +189,7 @@ bool invHex::event(QEvent *event)
             toolTipText->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
             toolTip->show();
             showToolTip = true;
-            qDebug() << "Hover Enter";
+//            qDebug() << "Hover Enter";
         }
         // Handle enter event
     }
@@ -199,7 +199,7 @@ bool invHex::event(QEvent *event)
         if (!cursorInsideTooltip) {
             delete(toolTip);
             showToolTip = false;
-            qDebug() << "Hover Leave";
+//            qDebug() << "Hover Leave";
         }
         // Handle leave event
     }
@@ -213,7 +213,7 @@ bool invHex::event(QEvent *event)
         } else {
             cursorInsideTooltip = false;
             toolTip->setGeometry(pos1.x(), pos1.y(), 150, 150);
-            qDebug() << "Hover Move" << pos1;
+//            qDebug() << "Hover Move" << pos1;
         }
         // Handle move event
     }

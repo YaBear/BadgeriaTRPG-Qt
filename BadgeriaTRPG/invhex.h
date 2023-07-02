@@ -23,7 +23,6 @@ public:
     bool event(QEvent *event) override;
 
 private:
-
     QString getQualityColor(QString quality);
     QFrame *toolTip = nullptr;
     bool showToolTip = false;
