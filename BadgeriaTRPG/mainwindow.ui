@@ -79,7 +79,7 @@ color: white;</string>
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
@@ -96,10 +96,10 @@ color: white;</string>
       <widget class="QFrame" name="frame">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>120</y>
-         <width>41</width>
-         <height>41</height>
+         <x>95</x>
+         <y>60</y>
+         <width>75</width>
+         <height>75</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -108,14 +108,30 @@ color: white;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>58</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Head</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="frame_2">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>170</y>
-         <width>41</width>
-         <height>41</height>
+         <x>10</x>
+         <y>140</y>
+         <width>75</width>
+         <height>75</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -124,14 +140,30 @@ color: white;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>58</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Shoulders</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="frame_3">
        <property name="geometry">
         <rect>
-         <x>170</x>
-         <y>170</y>
-         <width>41</width>
-         <height>41</height>
+         <x>180</x>
+         <y>140</y>
+         <width>75</width>
+         <height>75</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -140,14 +172,30 @@ color: white;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>58</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Neck</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="frame_4">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>250</y>
-         <width>41</width>
-         <height>41</height>
+         <x>10</x>
+         <y>300</y>
+         <width>75</width>
+         <height>75</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -156,14 +204,30 @@ color: white;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>30</y>
+          <width>71</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Hands</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="frame_5">
        <property name="geometry">
         <rect>
-         <x>170</x>
-         <y>250</y>
-         <width>41</width>
-         <height>41</height>
+         <x>180</x>
+         <y>300</y>
+         <width>75</width>
+         <height>75</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -172,14 +236,30 @@ color: white;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>30</y>
+          <width>71</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Legs</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="frame_6">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>310</y>
-         <width>41</width>
-         <height>41</height>
+         <x>50</x>
+         <y>380</y>
+         <width>75</width>
+         <height>75</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -188,14 +268,30 @@ color: white;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>30</y>
+          <width>71</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Ring L</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="frame_7">
        <property name="geometry">
         <rect>
-         <x>150</x>
-         <y>310</y>
-         <width>41</width>
-         <height>41</height>
+         <x>135</x>
+         <y>380</y>
+         <width>75</width>
+         <height>75</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -204,14 +300,30 @@ color: white;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QLabel" name="label_8">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>30</y>
+          <width>71</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Ring R</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="frame_8">
        <property name="geometry">
         <rect>
-         <x>60</x>
-         <y>370</y>
-         <width>41</width>
-         <height>41</height>
+         <x>10</x>
+         <y>460</y>
+         <width>75</width>
+         <height>75</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -220,14 +332,30 @@ color: white;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QLabel" name="label_9">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>30</y>
+          <width>71</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>MainHand</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="frame_9">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>370</y>
-         <width>41</width>
-         <height>41</height>
+         <x>180</x>
+         <y>460</y>
+         <width>75</width>
+         <height>75</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -236,14 +364,30 @@ color: white;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QLabel" name="label_10">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>30</y>
+          <width>71</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>OffHand</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="frame_10">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>210</y>
-         <width>41</width>
-         <height>41</height>
+         <x>95</x>
+         <y>220</y>
+         <width>75</width>
+         <height>75</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -252,14 +396,30 @@ color: white;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>58</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Body</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="frame_11">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>430</y>
-         <width>41</width>
-         <height>41</height>
+         <x>95</x>
+         <y>540</y>
+         <width>75</width>
+         <height>75</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -268,6 +428,22 @@ color: white;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QLabel" name="label_11">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>30</y>
+          <width>71</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Boots</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -764,7 +940,7 @@ background-repeat:  repeat-xy;</string>
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="findSlot">
+      <widget class="QPushButton" name="addSlot">
        <property name="geometry">
         <rect>
          <x>60</x>
@@ -774,7 +950,7 @@ background-repeat:  repeat-xy;</string>
         </rect>
        </property>
        <property name="text">
-        <string>Find</string>
+        <string>Add</string>
        </property>
       </widget>
       <widget class="QRadioButton" name="coordRadio">
@@ -837,7 +1013,7 @@ background-repeat:  repeat-xy;</string>
         </rect>
        </property>
        <property name="text">
-        <string>Roshan</string>
+        <string>Rokhan</string>
        </property>
       </widget>
       <widget class="QPushButton" name="hero2">
