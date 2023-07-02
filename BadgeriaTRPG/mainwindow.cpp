@@ -149,6 +149,7 @@ void MainWindow::on_findSlot_clicked()
             temp1->i_info.quality = qualityStack[countStack];
             temp1->i_info.type = "Sword 2h";
             temp1->i_info.info = "This is really...\nReally cool sword.";
+            temp1->i_info.exist = true;
         }
     } else {
         if (index < ui->inventoryGrid->count()) {
@@ -158,6 +159,7 @@ void MainWindow::on_findSlot_clicked()
             temp2->i_info.quality = qualityStack[countStack];
             temp2->i_info.type = "Sword 1h";
             temp2->i_info.info = "This is really...Really bad sword.";
+            temp2->i_info.exist = true;
         }
     }
     countStack++;
@@ -168,7 +170,7 @@ void MainWindow::on_findSlot_clicked()
 // Наведение мышкой на ячейки ивентаря
 bool invHex::event(QEvent *event)
 {
-    if (event->type() == QEvent::Enter && !showToolTip)
+    if (event->type() == QEvent::Enter && !showToolTip && this->i_info.exist)
     {
         // Hover enter event
         if (!cursorInsideTooltip) {
@@ -193,7 +195,7 @@ bool invHex::event(QEvent *event)
         }
         // Handle enter event
     }
-    else if (event->type() == QEvent::Leave)
+    else if (event->type() == QEvent::Leave && this->i_info.exist)
     {
         // Hover leave event
         if (!cursorInsideTooltip) {
@@ -203,7 +205,7 @@ bool invHex::event(QEvent *event)
         }
         // Handle leave event
     }
-    else if (event->type() == QEvent::MouseMove)
+    else if (event->type() == QEvent::MouseMove && this->i_info.exist)
     {
         // Hover move event
         QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);

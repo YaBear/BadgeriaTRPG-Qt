@@ -16,9 +16,10 @@ public:
         QString quality;
         QString type;
         QString info;
+        bool exist;
     } Item_Info;
 
-    Item_Info i_info = {"", "", "", ""};
+    Item_Info i_info = {"", "", "", "", false};
     explicit invHex(QWidget *parent = nullptr);
     bool event(QEvent *event) override;
 
