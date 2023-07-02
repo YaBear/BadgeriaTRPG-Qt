@@ -144,7 +144,7 @@ void MainWindow::on_findSlot_clicked()
     if (ui->coordRadio->isChecked()) {
         if (y < ui->inventoryGrid->rowCount()) {
             invHex *temp1 = (invHex*)ui->inventoryGrid->itemAtPosition(y, x)->widget();
-            temp1->setStyleSheet("QFrame {background-image: url(:/images/Grunt.png); background-position: center; background-repeat: disable}");
+            temp1->setStyleSheet("QFrame {background-image: url(:/images/10.jpg); background-position: center; background-repeat: disable}");
             temp1->i_info.name = "Silver Sword";
             temp1->i_info.quality = qualityStack[countStack];
             temp1->i_info.type = "Sword 2h";
@@ -154,7 +154,7 @@ void MainWindow::on_findSlot_clicked()
     } else {
         if (index < ui->inventoryGrid->count()) {
             invHex *temp2 = (invHex*)ui->inventoryGrid->itemAt(index)->widget();
-            temp2->setStyleSheet("QFrame {background-image: url(:/images/Grunt.png); background-position: center; background-repeat: disable}");
+            temp2->setStyleSheet("QFrame {background-image: url(:/images/8.jpg); background-position: center; background-repeat: disable}");
             temp2->i_info.name = "Broken Sword";
             temp2->i_info.quality = qualityStack[countStack];
             temp2->i_info.type = "Sword 1h";

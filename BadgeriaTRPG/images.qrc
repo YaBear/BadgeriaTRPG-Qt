@@ -14,5 +14,30 @@
         <file>images/Grunt.png</file>
         <file>images/Knight.png</file>
         <file>images/Shaman.png</file>
+        <file>images/1.png</file>
+        <file>images/2.jpg</file>
+        <file>images/3.jpg</file>
+        <file>images/4.png</file>
+        <file>images/5.png</file>
+        <file>images/6.jpg</file>
+        <file>images/7.jpg</file>
+        <file>images/8.jpg</file>
+        <file>images/9.jpg</file>
+        <file>images/10.jpg</file>
+        <file>images/11.png</file>
+        <file>images/SwordTrophy_01.png</file>
+        <file>images/WandTrophy_02.png</file>
+        <file>images/WandTrophy_03.png</file>
+        <file>images/WandTrophy_04.png</file>
+        <file>images/WandTrophy_05.png</file>
+        <file>images/WandTrophy_06.png</file>
+        <file>images/WandTrophy_07.png</file>
+        <file>images/WandTrophy_08.png</file>
+        <file>images/WandTrophy_09.png</file>
+        <file>images/WandTrophy_10.png.png</file>
+        <file>images/WandTrophy_11.png</file>
+        <file>images/WandTrophy_12.png</file>
+        <file>images/WandTrophy_13.png</file>
+        <file>images/WandTrophy_0222.png</file>
     </qresource>
 </RCC>
