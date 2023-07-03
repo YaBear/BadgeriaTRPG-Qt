@@ -33,6 +33,15 @@ class invHex : public QFrame {
 
   explicit invHex(QWidget *parent = nullptr);
   bool event(QEvent *event) override;
+  bool showToolTip = false;
+  bool showMenu = false;
+  bool showMoveHex = false;
+
+  QFrame *toolTip = nullptr;
+  invHex *moveHex = nullptr;
+
+  void setup_move(invHex *moveHex, QPointF pos);
+  void setup_menu_button(QPushButton *button, int x, int y, int w, int h, QString name);
 
  private slots:
   void on_drop_b_clicked();
@@ -41,17 +50,12 @@ class invHex : public QFrame {
 
  private:
   QString getQualityColor(QString quality);
-  QFrame *toolTip = nullptr;
-  invHex *moveHex = nullptr;
+
   Item_Info moveInfo = {"", "", "", "", false, false, false, 0, 0};
-  bool showToolTip = false;
-  bool showMenu = false;
-  bool showMoveHex = false;
-  void mouseMoveEvent(QMouseEvent *event) override;
-  void mousePressEvent(QMouseEvent *event) override;
-  void mouseReleaseEvent(QMouseEvent *event) override;
-  void setup_move(invHex *moveHex, QPointF pos);
-  void setup_menu_button(QPushButton *button, int x, int y, int w, int h, QString name);
+
+//  void mouseMoveEvent(QMouseEvent *event) override;
+//  void mousePressEvent(QMouseEvent *event) override;
+//  void mouseReleaseEvent(QMouseEvent *event) override;
 };
 
 #endif  // INVHEX_H

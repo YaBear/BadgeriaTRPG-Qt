@@ -79,18 +79,20 @@ void MainWindow::on_questAdd_clicked() {
 }
 
 void MainWindow::on_addInvSlot_clicked() {
-    for (int i = 0; i < 15; i++) {
-        invHex *temp = new (invHex);
-        temp->setFixedHeight(35);
-        temp->setFixedWidth(35);
-        temp->setFrameShape(QFrame::Panel);
-        temp->setFrameShadow(QFrame::Raised);
-        ui->inventoryGrid->addWidget(temp, i_row, i_column);
-        i_column++;
-        if (i_column == 5) {
-            i_row++;
-            i_column = 0;
+    int max = i_row + 3;
+    for (int i = i_row; i < max; i++) {
+        for (int j = 0; j < 5; j++) {
+            invHex *temp = new (invHex);
+            temp->setFixedHeight(35);
+            temp->setFixedWidth(35);
+            temp->setFrameShape(QFrame::Panel);
+            temp->setFrameShadow(QFrame::Raised);
+            temp->i_info.x = j;
+            temp->i_info.y = i;
+            ui->inventoryGrid->addWidget(temp, i_row, i_column);
+            if (i_column++ == 4) i_column = 0;
         }
+        i_row++;
     }
 }
 
@@ -131,8 +133,6 @@ void MainWindow::on_addSlot_clicked() {
             temp1->i_info.type = "Sword 2h";
             temp1->i_info.info = "This is really...\nReally cool sword.";
             temp1->i_info.exist = true;
-            temp1->i_info.x = x;
-            temp1->i_info.y = y;
         }
     } else {
         if (index < ui->inventoryGrid->count()) {
@@ -155,7 +155,15 @@ void MainWindow::on_addSlot_clicked() {
     if (countStack++ == 6) countStack = 0;
 }
 
-void MainWindow::mouseMoveEvent(QMouseEvent *event) {
-
-    qDebug() << "Pos x " << event->scenePosition().x() << " Pos y " << event->scenePosition().y();
+void MainWindow::mouseReleaseEvent(QMouseEvent *event) {
+    QPoint cursorPos = QCursor::pos();
+    qDebug() << cursorPos;
+    QWidget *widget = QApplication::widgetAt(event->globalPos());
+    if (widget && widget->underMouse())
+    {
+        invHex *temp = qobject_cast<invHex *>(widget);
+        if (temp) {
+            qDebug() << "?";
+        }
+    }
 }

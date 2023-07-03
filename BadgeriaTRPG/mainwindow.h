@@ -64,8 +64,7 @@ class MainWindow : public QMainWindow {
 
   void changeHeroFrame(QFrame *heroFrame, QLabel *heroNameLabel,
                        QString fileName, QString heroName);
-
-  void mouseMoveEvent(QMouseEvent *event) override;
+  void mouseReleaseEvent(QMouseEvent *event) override;
 protected:
   Ui::MainWindow *ui;
 };
