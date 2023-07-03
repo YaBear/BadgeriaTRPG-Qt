@@ -523,7 +523,7 @@ color: white;</string>
          <enum>QLayout::SetFixedSize</enum>
         </property>
         <property name="spacing">
-         <number>-1</number>
+         <number>6</number>
         </property>
        </layout>
       </widget>
@@ -725,7 +725,7 @@ border-radius: 1px;</string>
        <property name="geometry">
         <rect>
          <x>120</x>
-         <y>30</y>
+         <y>35</y>
          <width>81</width>
          <height>16</height>
         </rect>
@@ -747,7 +747,7 @@ border-radius: 1px;</string>
        <property name="geometry">
         <rect>
          <x>230</x>
-         <y>65</y>
+         <y>60</y>
          <width>81</width>
          <height>16</height>
         </rect>
