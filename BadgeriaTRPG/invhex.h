@@ -47,6 +47,11 @@ class invHex : public QFrame {
   bool showToolTip = false;
   bool showMenu = false;
   bool showMoveHex = false;
+  void mouseMoveEvent(QMouseEvent *event) override;
+  void mousePressEvent(QMouseEvent *event) override;
+  void mouseReleaseEvent(QMouseEvent *event) override;
+  void setup_move(invHex *moveHex, QPointF pos);
+  void setup_menu_button(QPushButton *button, int x, int y, int w, int h, QString name);
 };
 
 #endif  // INVHEX_H

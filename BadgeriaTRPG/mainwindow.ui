@@ -518,12 +518,24 @@ color: white;</string>
          <height>701</height>
         </rect>
        </property>
-       <layout class="QGridLayout" name="inventoryGrid">
+       <layout class="QGridLayout" name="inventoryGrid" rowstretch="0" columnstretch="0">
         <property name="sizeConstraint">
          <enum>QLayout::SetFixedSize</enum>
         </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <property name="spacing">
-         <number>6</number>
+         <number>15</number>
         </property>
        </layout>
       </widget>

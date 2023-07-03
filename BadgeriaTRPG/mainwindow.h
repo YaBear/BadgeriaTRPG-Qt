@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QtWidgets>
+#include <QMouseEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -56,7 +57,7 @@ class MainWindow : public QMainWindow {
   int e_currhp = e_maxhp;
 
   QString qualityStack[7] = {"Poor", "Normal",    "Uncommon",  "Rare",
-                             "Epic", "Legendary", "Pearlscent"};
+                             "Epic", "Legendary", "Pearlescent"};
   int countStack = 0;
 
   bool showToolTip = false;
@@ -64,7 +65,8 @@ class MainWindow : public QMainWindow {
   void changeHeroFrame(QFrame *heroFrame, QLabel *heroNameLabel,
                        QString fileName, QString heroName);
 
- protected:
+  void mouseMoveEvent(QMouseEvent *event) override;
+protected:
   Ui::MainWindow *ui;
 };
 #endif  // MAINWINDOW_H
